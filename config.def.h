@@ -5,13 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-/* Spare fonts */
-static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
-};
-
+static char *font = "Hack Nerd Font Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font2[] = {"Source Code Pro Regular:size=13"};
 static int borderpx = 2;
 
 /*
@@ -79,7 +74,7 @@ static unsigned int cursorthickness = 2;
  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
-const int boxdraw = 0;
+const int boxdraw = 1;
 const int boxdraw_bold = 0;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
@@ -138,6 +133,8 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
+	"#cccccc",
+	"#555555",
 };
 
 
@@ -145,10 +142,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 258;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 259;
 
 /*
  * Default shape of cursor
@@ -191,6 +188,7 @@ static uint forcemousemod = ShiftMask;
  */
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
+        { "fontalt0",     STRING,  &font2[0] },
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
@@ -238,7 +236,7 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
+/* #define MODKEY Mod1Mask */
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
