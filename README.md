@@ -17,6 +17,7 @@ Some patches have been modified to suit up the patching process.
 - clipboard
 - scrollback
 - bold is not bright
+- newterm (patch by hand)
 
 ## Maby I want this also
 - [ ] external pipe (url opening using [this](https://github.com/LukeSmithxyz/st/blob/master/st-urlhandler) script)
