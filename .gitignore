@@ -3,4 +3,5 @@ st
 st.o
 x.o
 *.orig
+boxdraw.o
 
